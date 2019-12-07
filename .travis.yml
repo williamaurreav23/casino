@@ -47,11 +47,9 @@ install:
   - npm install
 script:
   - chmod +x mvnw
-  - ./mvnw -ntp checkstyle:check
   - ./mvnw -ntp clean verify
   - ./mvnw -ntp com.github.eirslett:frontend-maven-plugin:npm -Dfrontend.npm.arguments='run test' -Dmaven.repo.local=$MAVEN_USER_HOME
   - ./mvnw -ntp verify -Pprod -DskipTests
-  - ./mvnw clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar -Dsonar.projectKey=sebastian-steiner_casino
 notifications:
   webhooks:
     on_success: change # options: [always|never|change] default: always
