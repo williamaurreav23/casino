@@ -9,7 +9,10 @@ module.exports = {
         'ts-jest': {
             stringifyContentPathRegex: '\\.html$',
             tsConfig: '<rootDir>/tsconfig.json',
-            astTransformers: [require.resolve('jest-preset-angular/InlineHtmlStripStylesTransformer')]
+            astTransformers: [
+                "jest-preset-angular/build/InlineFilesTransformer",
+                "jest-preset-angular/build/StripStylesTransformer"
+            ]
         }
     },
     coveragePathIgnorePatterns: [
