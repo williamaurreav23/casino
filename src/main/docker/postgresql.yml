@@ -1,0 +1,11 @@
+version: '2'
+services:
+  casino-postgresql:
+    image: postgres:11.5
+    # volumes:
+    #     - ~/volumes/jhipster/casino/postgresql/:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_USER=casino
+      - POSTGRES_PASSWORD=
+    ports:
+      - 5432:5432
