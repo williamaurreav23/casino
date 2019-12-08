@@ -1,0 +1,12 @@
+- Tagesende veränderbar
+- Aktienziehungen kann zu beliebigen Zeitpunkten geschehen
+- Allgemeine Geldübersicht kann zu beliebigen Zeitpunkten aktualisiert werden
+- Aktien sollen manuell vor Ende des Spiels verkauft werden
+    - Es geschieht zwar AUTOMATISCH
+    - Spieler/innen sollen aber glauben, dass sie manuell verkaufen müssen
+    - Damit der Obi nicht so einsam ist
+- Spielern kann nachträglich Geld VON ADMINS nachgetragen werden
+    - Wenn sie nach offiziellem Ende noch wo gespielt haben
+    - NUR ALS BACKUP
+- Admins können Usern Rollen zuweisen/abziehen
+- Sales Dollar müssen nachkaufbar sein
