@@ -33,6 +33,12 @@
                             <span jhiTranslate="global.menu.entities.spieler">Spieler</span>
                         </a>
                     </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="aktie" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <span jhiTranslate="global.menu.entities.aktie">Aktie</span>
+                        </a>
+                    </li>
                     <!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here -->
                 </ul>
             </li>
