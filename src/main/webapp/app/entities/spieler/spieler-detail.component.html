@@ -1,0 +1,39 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="spieler">
+            <h2><span jhiTranslate="casinoApp.spieler.detail.title">Spieler</span> {{spieler.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="casinoApp.spieler.vorname">Vorname</span></dt>
+                <dd>
+                    <span>{{spieler.vorname}}</span>
+                </dd>
+                <dt><span jhiTranslate="casinoApp.spieler.nachname">Nachname</span></dt>
+                <dd>
+                    <span>{{spieler.nachname}}</span>
+                </dd>
+                <dt><span jhiTranslate="casinoApp.spieler.isKind">Is Kind</span></dt>
+                <dd>
+                    <span>{{spieler.isKind}}</span>
+                </dd>
+                <dt><span jhiTranslate="casinoApp.spieler.kennzahl">Kennzahl</span></dt>
+                <dd>
+                    <span>{{spieler.kennzahl}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/spieler', spieler.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
