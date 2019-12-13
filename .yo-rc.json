@@ -22,7 +22,8 @@
     "buildTool": "maven",
     "enableSwaggerCodegen": false,
     "jwtSecretKey": "ODZhYjY5M2Q3MDRmMDAzYzI4MjYxOGNhNmVlZDA1YTdiOWNiMjNiM2M2ODI1ZGNkMjk5OTJiNjg4NWUxODQ2M2I1OGNlOGMzOTEzMTE3ZGUyOWEzN2YyZDQzYjViMGM2NGY5ZTE5NTMxZmM5MDhkZThiMTMwNzQzYjAwOTFkNjY=",
-    "embeddableLaunchScript": false
+    "embeddableLaunchScript": false,
+    "enableTranslation": true
   },
   "generator-jhipster": {
     "promptValues": {
