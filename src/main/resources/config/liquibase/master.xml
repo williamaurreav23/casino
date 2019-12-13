@@ -19,9 +19,11 @@
     <include file="config/liquibase/changelog/20191213231318_added_entity_SpielerTransaktion.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20191213231827_added_entity_AktieWert.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20191213232022_added_entity_SpielerAktie.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191213232306_added_entity_SpielerAktieHistory.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
     <include file="config/liquibase/changelog/20191213231318_added_entity_constraints_SpielerTransaktion.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20191213231827_added_entity_constraints_AktieWert.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20191213232022_added_entity_constraints_SpielerAktie.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191213232306_added_entity_constraints_SpielerAktieHistory.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 </databaseChangeLog>

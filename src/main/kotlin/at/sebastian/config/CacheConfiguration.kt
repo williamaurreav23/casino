@@ -47,6 +47,7 @@ class CacheConfiguration(jHipsterProperties: JHipsterProperties) {
             createCache(cm, at.sebastian.domain.SpielerTransaktion::class.java.name)
             createCache(cm, at.sebastian.domain.AktieWert::class.java.name)
             createCache(cm, at.sebastian.domain.SpielerAktie::class.java.name)
+            createCache(cm, at.sebastian.domain.SpielerAktieHistory::class.java.name)
             // jhipster-needle-ehcache-add-entry
         }
     }

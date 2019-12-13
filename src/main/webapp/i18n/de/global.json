@@ -12,6 +12,7 @@
         "spielerTransaktion": "Spieler Transaktion",
         "aktieWert": "Aktie Wert",
         "spielerAktie": "Spieler Aktie",
+        "spielerAktieHistory": "Spieler Aktie History",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

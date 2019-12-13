@@ -23,6 +23,10 @@ import { RouterModule } from '@angular/router';
       {
         path: 'spieler-aktie',
         loadChildren: () => import('./spieler-aktie/spieler-aktie.module').then(m => m.CasinoSpielerAktieModule)
+      },
+      {
+        path: 'spieler-aktie-history',
+        loadChildren: () => import('./spieler-aktie-history/spieler-aktie-history.module').then(m => m.CasinoSpielerAktieHistoryModule)
       }
       /* jhipster-needle-add-entity-route - JHipster will add entity modules routes here */
     ])
