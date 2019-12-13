@@ -9,6 +9,7 @@
         "main": "Entitäten",
         "spieler": "Spieler",
         "aktie": "Aktie",
+        "spielerTransaktion": "Spieler Transaktion",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

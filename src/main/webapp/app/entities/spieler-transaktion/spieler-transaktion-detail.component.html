@@ -1,0 +1,37 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="spielerTransaktion">
+            <h2><span jhiTranslate="casinoApp.spielerTransaktion.detail.title">Spieler Transaktion</span> {{spielerTransaktion.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="casinoApp.spielerTransaktion.wert">Wert</span></dt>
+                <dd>
+                    <span>{{spielerTransaktion.wert}}</span>
+                </dd>
+                <dt><span jhiTranslate="casinoApp.spielerTransaktion.typ">Typ</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'casinoApp.Transaktion.' + spielerTransaktion.typ}}">{{spielerTransaktion.typ}}</span>
+                </dd>
+                <dt><span jhiTranslate="casinoApp.spielerTransaktion.spieler">Spieler</span></dt>
+                <dd>
+                    <div *ngIf="spielerTransaktion.spielerId">
+                        <a [routerLink]="['/spieler', spielerTransaktion.spielerId, 'view']">{{spielerTransaktion.spielerId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/spieler-transaktion', spielerTransaktion.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

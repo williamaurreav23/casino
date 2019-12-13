@@ -1,0 +1,31 @@
+{
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "relationships": [
+        {
+            "relationshipName": "spieler",
+            "otherEntityName": "spieler",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "wert",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "typ",
+            "fieldType": "Transaktion",
+            "fieldValues": "SPIELSTART,ROULETTE,POKER,BLACKJACK,AKTIE"
+        }
+    ],
+    "changelogDate": "20191213231318",
+    "dto": "mapstruct",
+    "searchEngine": false,
+    "service": "serviceImpl",
+    "entityTableName": "spieler_transaktion",
+    "databaseType": "sql",
+    "jpaMetamodelFiltering": false,
+    "pagination": "no"
+}

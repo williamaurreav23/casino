@@ -1,0 +1,46 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-spieler-transaktion-heading" jhiTranslate="casinoApp.spielerTransaktion.home.createOrEditLabel">Create or edit a Spieler Transaktion</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="casinoApp.spielerTransaktion.wert" for="field_wert">Wert</label>
+                    <input type="number" class="form-control" name="wert" id="field_wert"
+                           formControlName="wert"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="casinoApp.spielerTransaktion.typ" for="field_typ">Typ</label>
+                    <select class="form-control" name="typ" formControlName="typ" id="field_typ">
+                        <option value="SPIELSTART">{{'casinoApp.Transaktion.SPIELSTART' | translate}}</option>
+                        <option value="ROULETTE">{{'casinoApp.Transaktion.ROULETTE' | translate}}</option>
+                        <option value="POKER">{{'casinoApp.Transaktion.POKER' | translate}}</option>
+                        <option value="BLACKJACK">{{'casinoApp.Transaktion.BLACKJACK' | translate}}</option>
+                        <option value="AKTIE">{{'casinoApp.Transaktion.AKTIE' | translate}}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="casinoApp.spielerTransaktion.spieler" for="field_spieler">Spieler</label>
+                    <select class="form-control" id="field_spieler" name="spieler" formControlName="spielerId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="spielerOption.id" *ngFor="let spielerOption of spielers; trackBy: trackSpielerById">{{spielerOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
