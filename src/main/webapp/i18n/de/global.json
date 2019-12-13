@@ -10,6 +10,7 @@
         "spieler": "Spieler",
         "aktie": "Aktie",
         "spielerTransaktion": "Spieler Transaktion",
+        "spielerAktie": "Spieler Aktie",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {
