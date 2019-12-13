@@ -1,0 +1,43 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-spieler-aktie-heading" jhiTranslate="casinoApp.spielerAktie.home.createOrEditLabel">Create or edit a Spieler Aktie</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="casinoApp.spielerAktie.anzahl" for="field_anzahl">Anzahl</label>
+                    <input type="number" class="form-control" name="anzahl" id="field_anzahl"
+                           formControlName="anzahl"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="casinoApp.spielerAktie.spieler" for="field_spieler">Spieler</label>
+                    <select class="form-control" id="field_spieler" name="spieler" formControlName="spielerId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="spielerOption.id" *ngFor="let spielerOption of spielers; trackBy: trackSpielerById">{{spielerOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="casinoApp.spielerAktie.aktie" for="field_aktie">Aktie</label>
+                    <select class="form-control" id="field_aktie" name="aktie" formControlName="aktieId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="aktieOption.id" *ngFor="let aktieOption of akties; trackBy: trackAktieById">{{aktieOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
