@@ -1,0 +1,30 @@
+{
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "relationships": [
+        {
+            "relationshipName": "aktie",
+            "otherEntityName": "aktie",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "wert",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "creationTime",
+            "fieldType": "Instant"
+        }
+    ],
+    "changelogDate": "20191213232440",
+    "dto": "no",
+    "searchEngine": false,
+    "service": "no",
+    "entityTableName": "aktie_wert_history",
+    "databaseType": "sql",
+    "jpaMetamodelFiltering": false,
+    "pagination": "no"
+}

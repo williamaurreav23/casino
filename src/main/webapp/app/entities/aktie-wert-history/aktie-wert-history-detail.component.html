@@ -1,0 +1,37 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="aktieWertHistory">
+            <h2><span jhiTranslate="casinoApp.aktieWertHistory.detail.title">Aktie Wert History</span> {{aktieWertHistory.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="casinoApp.aktieWertHistory.wert">Wert</span></dt>
+                <dd>
+                    <span>{{aktieWertHistory.wert}}</span>
+                </dd>
+                <dt><span jhiTranslate="casinoApp.aktieWertHistory.creationTime">Creation Time</span></dt>
+                <dd>
+                    <span>{{aktieWertHistory.creationTime}}</span>
+                </dd>
+                <dt><span jhiTranslate="casinoApp.aktieWertHistory.aktie">Aktie</span></dt>
+                <dd>
+                    <div *ngIf="aktieWertHistory.aktie">
+                        <a [routerLink]="['/aktie', aktieWertHistory.aktie?.id, 'view']">{{aktieWertHistory.aktie?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/aktie-wert-history', aktieWertHistory.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
