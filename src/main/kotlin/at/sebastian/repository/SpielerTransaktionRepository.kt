@@ -1,7 +1,6 @@
 package at.sebastian.repository
 import at.sebastian.domain.SpielerTransaktion
 import org.springframework.data.jpa.repository.JpaRepository
-import org.springframework.data.jpa.repository.Query
 import org.springframework.stereotype.Repository
 
 /**
@@ -9,5 +8,4 @@ import org.springframework.stereotype.Repository
  */
 @Suppress("unused")
 @Repository
-interface SpielerTransaktionRepository : JpaRepository<SpielerTransaktion, Long> {
-}
+interface SpielerTransaktionRepository : JpaRepository<SpielerTransaktion, Long>

@@ -7,9 +7,10 @@ import at.sebastian.service.SpielerService
 import at.sebastian.service.dto.SpielerDTO
 import at.sebastian.service.mapper.SpielerMapper
 import at.sebastian.web.rest.errors.ExceptionTranslator
-
+import javax.persistence.EntityManager
 import kotlin.test.assertNotNull
-
+import org.assertj.core.api.Assertions.assertThat
+import org.hamcrest.Matchers.hasItem
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.mockito.MockitoAnnotations
@@ -19,13 +20,6 @@ import org.springframework.data.web.PageableHandlerMethodArgumentResolver
 import org.springframework.http.MediaType
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter
 import org.springframework.test.web.servlet.MockMvc
-import org.springframework.test.web.servlet.setup.MockMvcBuilders
-import org.springframework.transaction.annotation.Transactional
-import org.springframework.validation.Validator
-import javax.persistence.EntityManager
-
-import org.assertj.core.api.Assertions.assertThat
-import org.hamcrest.Matchers.hasItem
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post
@@ -33,7 +27,9 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers.content
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers.status
-
+import org.springframework.test.web.servlet.setup.MockMvcBuilders
+import org.springframework.transaction.annotation.Transactional
+import org.springframework.validation.Validator
 
 /**
  * Integration tests for the [SpielerResource] REST controller.
@@ -133,7 +129,6 @@ class SpielerResourceIT {
         assertThat(spielerList).hasSize(databaseSizeBeforeCreate)
     }
 
-
     @Test
     @Transactional
     fun getAllSpielers() {
@@ -150,7 +145,7 @@ class SpielerResourceIT {
             .andExpect(jsonPath("$.[*].isKind").value(hasItem(DEFAULT_IS_KIND)))
             .andExpect(jsonPath("$.[*].kennzahl").value(hasItem(DEFAULT_KENNZAHL)))
     }
-    
+
     @Test
     @Transactional
     fun getSpieler() {

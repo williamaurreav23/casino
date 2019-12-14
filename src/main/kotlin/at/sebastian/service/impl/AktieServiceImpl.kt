@@ -1,16 +1,14 @@
 package at.sebastian.service.impl
 
-import at.sebastian.service.AktieService
 import at.sebastian.domain.Aktie
 import at.sebastian.repository.AktieRepository
+import at.sebastian.service.AktieService
 import at.sebastian.service.dto.AktieDTO
 import at.sebastian.service.mapper.AktieMapper
+import java.util.Optional
 import org.slf4j.LoggerFactory
-
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
-
-import java.util.Optional
 
 /**
  * Service Implementation for managing [Aktie].

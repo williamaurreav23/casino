@@ -1,7 +1,7 @@
 package at.sebastian.service.dto
 
+import at.sebastian.domain.enumeration.Transaktion
 import java.io.Serializable
-    import at.sebastian.domain.enumeration.Transaktion
 
 /**
  * A DTO for the [at.sebastian.domain.SpielerTransaktion] entity.

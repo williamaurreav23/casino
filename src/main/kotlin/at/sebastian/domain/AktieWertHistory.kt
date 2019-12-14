@@ -1,10 +1,7 @@
 package at.sebastian.domain
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties
-import org.hibernate.annotations.Cache
-import org.hibernate.annotations.CacheConcurrencyStrategy
-
-import javax.persistence.CascadeType
+import java.io.Serializable
+import java.time.Instant
 import javax.persistence.Column
 import javax.persistence.Entity
 import javax.persistence.GeneratedValue
@@ -13,9 +10,8 @@ import javax.persistence.Id
 import javax.persistence.ManyToOne
 import javax.persistence.SequenceGenerator
 import javax.persistence.Table
-
-import java.io.Serializable
-import java.time.Instant
+import org.hibernate.annotations.Cache
+import org.hibernate.annotations.CacheConcurrencyStrategy
 
 /**
  * A AktieWertHistory.
@@ -58,7 +54,6 @@ class AktieWertHistory(
         ", wert=$wert" +
         ", creationTime='$creationTime'" +
         "}"
-
 
     companion object {
         private const val serialVersionUID = 1L

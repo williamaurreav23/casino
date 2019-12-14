@@ -4,9 +4,12 @@ import at.sebastian.CasinoApp
 import at.sebastian.domain.SpielerAktieHistory
 import at.sebastian.repository.SpielerAktieHistoryRepository
 import at.sebastian.web.rest.errors.ExceptionTranslator
-
+import java.time.Instant
+import java.time.temporal.ChronoUnit
+import javax.persistence.EntityManager
 import kotlin.test.assertNotNull
-
+import org.assertj.core.api.Assertions.assertThat
+import org.hamcrest.Matchers.hasItem
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.mockito.MockitoAnnotations
@@ -16,15 +19,6 @@ import org.springframework.data.web.PageableHandlerMethodArgumentResolver
 import org.springframework.http.MediaType
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter
 import org.springframework.test.web.servlet.MockMvc
-import org.springframework.test.web.servlet.setup.MockMvcBuilders
-import org.springframework.transaction.annotation.Transactional
-import org.springframework.validation.Validator
-import javax.persistence.EntityManager
-import java.time.Instant
-import java.time.temporal.ChronoUnit
-
-import org.assertj.core.api.Assertions.assertThat
-import org.hamcrest.Matchers.hasItem
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post
@@ -32,7 +26,9 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers.content
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers.status
-
+import org.springframework.test.web.servlet.setup.MockMvcBuilders
+import org.springframework.transaction.annotation.Transactional
+import org.springframework.validation.Validator
 
 /**
  * Integration tests for the [SpielerAktieHistoryResource] REST controller.
@@ -122,7 +118,6 @@ class SpielerAktieHistoryResourceIT {
         assertThat(spielerAktieHistoryList).hasSize(databaseSizeBeforeCreate)
     }
 
-
     @Test
     @Transactional
     fun getAllSpielerAktieHistories() {
@@ -137,7 +132,7 @@ class SpielerAktieHistoryResourceIT {
             .andExpect(jsonPath("$.[*].anzahl").value(hasItem(DEFAULT_ANZAHL)))
             .andExpect(jsonPath("$.[*].creationTime").value(hasItem(DEFAULT_CREATION_TIME.toString())))
     }
-    
+
     @Test
     @Transactional
     fun getSpielerAktieHistory() {

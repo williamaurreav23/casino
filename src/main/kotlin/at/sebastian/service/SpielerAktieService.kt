@@ -1,7 +1,6 @@
 package at.sebastian.service
 
 import at.sebastian.service.dto.SpielerAktieDTO
-
 import java.util.Optional
 
 /**

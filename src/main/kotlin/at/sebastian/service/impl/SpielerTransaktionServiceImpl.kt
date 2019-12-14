@@ -1,16 +1,14 @@
 package at.sebastian.service.impl
 
-import at.sebastian.service.SpielerTransaktionService
 import at.sebastian.domain.SpielerTransaktion
 import at.sebastian.repository.SpielerTransaktionRepository
+import at.sebastian.service.SpielerTransaktionService
 import at.sebastian.service.dto.SpielerTransaktionDTO
 import at.sebastian.service.mapper.SpielerTransaktionMapper
+import java.util.Optional
 import org.slf4j.LoggerFactory
-
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
-
-import java.util.Optional
 
 /**
  * Service Implementation for managing [SpielerTransaktion].

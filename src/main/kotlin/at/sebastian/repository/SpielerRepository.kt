@@ -1,7 +1,6 @@
 package at.sebastian.repository
 import at.sebastian.domain.Spieler
 import org.springframework.data.jpa.repository.JpaRepository
-import org.springframework.data.jpa.repository.Query
 import org.springframework.stereotype.Repository
 
 /**
@@ -9,5 +8,4 @@ import org.springframework.stereotype.Repository
  */
 @Suppress("unused")
 @Repository
-interface SpielerRepository : JpaRepository<Spieler, Long> {
-}
+interface SpielerRepository : JpaRepository<Spieler, Long>

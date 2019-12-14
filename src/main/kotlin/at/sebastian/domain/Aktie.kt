@@ -1,20 +1,16 @@
 package at.sebastian.domain
 
-import org.hibernate.annotations.Cache
-import org.hibernate.annotations.CacheConcurrencyStrategy
-
-import javax.persistence.CascadeType
+import java.io.Serializable
 import javax.persistence.Column
 import javax.persistence.Entity
 import javax.persistence.GeneratedValue
 import javax.persistence.GenerationType
 import javax.persistence.Id
-import javax.persistence.JoinColumn
 import javax.persistence.OneToMany
 import javax.persistence.SequenceGenerator
 import javax.persistence.Table
-
-import java.io.Serializable
+import org.hibernate.annotations.Cache
+import org.hibernate.annotations.CacheConcurrencyStrategy
 
 /**
  * A Aktie.
@@ -82,7 +78,6 @@ class Aktie(
         "id=$id" +
         ", name='$name'" +
         "}"
-
 
     companion object {
         private const val serialVersionUID = 1L

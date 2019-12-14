@@ -1,11 +1,12 @@
 package at.sebastian.web.rest
 
 import at.sebastian.service.SpielerAktieService
-import at.sebastian.web.rest.errors.BadRequestAlertException
 import at.sebastian.service.dto.SpielerAktieDTO
-
+import at.sebastian.web.rest.errors.BadRequestAlertException
 import io.github.jhipster.web.util.HeaderUtil
 import io.github.jhipster.web.util.ResponseUtil
+import java.net.URI
+import java.net.URISyntaxException
 import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.http.ResponseEntity
@@ -16,11 +17,7 @@ import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.PutMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.RestController
-
-import java.net.URI
-import java.net.URISyntaxException
 
 private const val ENTITY_NAME = "spielerAktie"
 /**
@@ -89,7 +86,7 @@ class SpielerAktieResource(
 
      * @return the [ResponseEntity] with status `200 (OK)` and the list of spielerAkties in body.
      */
-    @GetMapping("/spieler-akties")    
+    @GetMapping("/spieler-akties")
     fun getAllSpielerAkties(): MutableList<SpielerAktieDTO> {
         log.debug("REST request to get all SpielerAkties")
         return spielerAktieService.findAll()

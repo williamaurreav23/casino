@@ -7,9 +7,10 @@ import at.sebastian.service.SpielerAktieService
 import at.sebastian.service.dto.SpielerAktieDTO
 import at.sebastian.service.mapper.SpielerAktieMapper
 import at.sebastian.web.rest.errors.ExceptionTranslator
-
+import javax.persistence.EntityManager
 import kotlin.test.assertNotNull
-
+import org.assertj.core.api.Assertions.assertThat
+import org.hamcrest.Matchers.hasItem
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.mockito.MockitoAnnotations
@@ -19,13 +20,6 @@ import org.springframework.data.web.PageableHandlerMethodArgumentResolver
 import org.springframework.http.MediaType
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter
 import org.springframework.test.web.servlet.MockMvc
-import org.springframework.test.web.servlet.setup.MockMvcBuilders
-import org.springframework.transaction.annotation.Transactional
-import org.springframework.validation.Validator
-import javax.persistence.EntityManager
-
-import org.assertj.core.api.Assertions.assertThat
-import org.hamcrest.Matchers.hasItem
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post
@@ -33,7 +27,9 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers.content
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers.status
-
+import org.springframework.test.web.servlet.setup.MockMvcBuilders
+import org.springframework.transaction.annotation.Transactional
+import org.springframework.validation.Validator
 
 /**
  * Integration tests for the [SpielerAktieResource] REST controller.
@@ -130,7 +126,6 @@ class SpielerAktieResourceIT {
         assertThat(spielerAktieList).hasSize(databaseSizeBeforeCreate)
     }
 
-
     @Test
     @Transactional
     fun getAllSpielerAkties() {
@@ -144,7 +139,7 @@ class SpielerAktieResourceIT {
             .andExpect(jsonPath("$.[*].id").value(hasItem(spielerAktie.id?.toInt())))
             .andExpect(jsonPath("$.[*].anzahl").value(hasItem(DEFAULT_ANZAHL)))
     }
-    
+
     @Test
     @Transactional
     fun getSpielerAktie() {

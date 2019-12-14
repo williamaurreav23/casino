@@ -1,11 +1,12 @@
 package at.sebastian.web.rest
 
 import at.sebastian.service.SpielerTransaktionService
-import at.sebastian.web.rest.errors.BadRequestAlertException
 import at.sebastian.service.dto.SpielerTransaktionDTO
-
+import at.sebastian.web.rest.errors.BadRequestAlertException
 import io.github.jhipster.web.util.HeaderUtil
 import io.github.jhipster.web.util.ResponseUtil
+import java.net.URI
+import java.net.URISyntaxException
 import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.http.ResponseEntity
@@ -16,11 +17,7 @@ import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.PutMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.RestController
-
-import java.net.URI
-import java.net.URISyntaxException
 
 private const val ENTITY_NAME = "spielerTransaktion"
 /**
@@ -89,7 +86,7 @@ class SpielerTransaktionResource(
 
      * @return the [ResponseEntity] with status `200 (OK)` and the list of spielerTransaktions in body.
      */
-    @GetMapping("/spieler-transaktions")    
+    @GetMapping("/spieler-transaktions")
     fun getAllSpielerTransaktions(): MutableList<SpielerTransaktionDTO> {
         log.debug("REST request to get all SpielerTransaktions")
         return spielerTransaktionService.findAll()

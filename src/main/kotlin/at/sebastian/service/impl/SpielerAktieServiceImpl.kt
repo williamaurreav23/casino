@@ -1,16 +1,14 @@
 package at.sebastian.service.impl
 
-import at.sebastian.service.SpielerAktieService
 import at.sebastian.domain.SpielerAktie
 import at.sebastian.repository.SpielerAktieRepository
+import at.sebastian.service.SpielerAktieService
 import at.sebastian.service.dto.SpielerAktieDTO
 import at.sebastian.service.mapper.SpielerAktieMapper
+import java.util.Optional
 import org.slf4j.LoggerFactory
-
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
-
-import java.util.Optional
 
 /**
  * Service Implementation for managing [SpielerAktie].

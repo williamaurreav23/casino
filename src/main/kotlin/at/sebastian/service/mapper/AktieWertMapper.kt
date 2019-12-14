@@ -2,7 +2,6 @@ package at.sebastian.service.mapper
 
 import at.sebastian.domain.AktieWert
 import at.sebastian.service.dto.AktieWertDTO
-
 import org.mapstruct.Mapper
 import org.mapstruct.Mapping
 import org.mapstruct.Mappings

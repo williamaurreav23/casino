@@ -2,7 +2,6 @@ package at.sebastian.service.mapper
 
 import at.sebastian.domain.Aktie
 import at.sebastian.service.dto.AktieDTO
-
 import org.mapstruct.Mapper
 import org.mapstruct.Mapping
 import org.mapstruct.Mappings
