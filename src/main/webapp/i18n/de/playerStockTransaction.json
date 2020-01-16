@@ -1,0 +1,25 @@
+{
+  "casinoApp": {
+    "playerStockTransaction": {
+      "home": {
+        "title": "Player Stock Transactions",
+        "createLabel": "Player Stock Transaction erstellen",
+        "createOrEditLabel": "Player Stock Transaction erstellen oder bearbeiten",
+        "notFound": "No Player Stock Transactions found"
+      },
+      "created": "Player Stock Transaction erstellt mit ID {{ param }}",
+      "updated": "Player Stock Transaction aktualisiert mit ID {{ param }}",
+      "deleted": "Player Stock Transaction gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll Player Stock Transaction {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Player Stock Transaction"
+      },
+      "time": "Time",
+      "amount": "Amount",
+      "player": "Player",
+      "stock": "Stock"
+    }
+  }
+}
