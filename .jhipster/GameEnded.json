@@ -1,0 +1,15 @@
+{
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "relationships": [],
+    "fields": [],
+    "changelogDate": "20200116115656",
+    "dto": "no",
+    "searchEngine": false,
+    "service": "no",
+    "entityTableName": "game_ended",
+    "databaseType": "sql",
+    "readOnly": false,
+    "jpaMetamodelFiltering": false,
+    "pagination": "no"
+}

@@ -1,0 +1,21 @@
+{
+  "casinoApp": {
+    "gameEnded": {
+      "home": {
+        "title": "Game Endeds",
+        "createLabel": "Game Ended erstellen",
+        "createOrEditLabel": "Game Ended erstellen oder bearbeiten",
+        "notFound": "No Game Endeds found"
+      },
+      "created": "Game Ended erstellt mit ID {{ param }}",
+      "updated": "Game Ended aktualisiert mit ID {{ param }}",
+      "deleted": "Game Ended gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll Game Ended {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Game Ended"
+      }
+    }
+  }
+}
