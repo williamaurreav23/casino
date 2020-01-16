@@ -13,10 +13,10 @@ public interface StockValueChangeService {
     /**
      * Save a stockValueChange.
      *
-     * @param stockValueChangeDTO the entity to save.
+     * @param stockValueChangeDTOs the entity to save.
      * @return the persisted entity.
      */
-    StockValueChangeDTO save(StockValueChangeDTO stockValueChangeDTO);
+    List<StockValueChangeDTO> save(List<StockValueChangeDTO> stockValueChangeDTOs);
 
     /**
      * Get all the stockValueChanges.

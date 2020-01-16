@@ -10,6 +10,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
@@ -41,41 +42,16 @@ public class StockValueChangeResource {
     /**
      * {@code POST  /stock-value-changes} : Create a new stockValueChange.
      *
-     * @param stockValueChangeDTO the stockValueChangeDTO to create.
-     * @return the {@link ResponseEntity} with status {@code 201 (Created)} and with body the new stockValueChangeDTO, or with status {@code 400 (Bad Request)} if the stockValueChange has already an ID.
+     * @param stockValueChangeDTOs the stockValueChangeDTOs to create.
+     * @return the {@link ResponseEntity} with status {@code 201 (Created)} and with body the new stockValueChangeDTOs, or with status {@code 400 (Bad Request)} if the stockValueChange has already an ID.
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PostMapping("/stock-value-changes")
-    public ResponseEntity<StockValueChangeDTO> createStockValueChange(@RequestBody StockValueChangeDTO stockValueChangeDTO) throws URISyntaxException {
-        log.debug("REST request to save StockValueChange : {}", stockValueChangeDTO);
-        if (stockValueChangeDTO.getId() != null) {
-            throw new BadRequestAlertException("A new stockValueChange cannot already have an ID", ENTITY_NAME, "idexists");
-        }
-        StockValueChangeDTO result = stockValueChangeService.save(stockValueChangeDTO);
-        return ResponseEntity.created(new URI("/api/stock-value-changes/" + result.getId()))
-            .headers(HeaderUtil.createEntityCreationAlert(applicationName, true, ENTITY_NAME, result.getId().toString()))
-            .body(result);
-    }
-
-    /**
-     * {@code PUT  /stock-value-changes} : Updates an existing stockValueChange.
-     *
-     * @param stockValueChangeDTO the stockValueChangeDTO to update.
-     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the updated stockValueChangeDTO,
-     * or with status {@code 400 (Bad Request)} if the stockValueChangeDTO is not valid,
-     * or with status {@code 500 (Internal Server Error)} if the stockValueChangeDTO couldn't be updated.
-     * @throws URISyntaxException if the Location URI syntax is incorrect.
-     */
-    @PutMapping("/stock-value-changes")
-    public ResponseEntity<StockValueChangeDTO> updateStockValueChange(@RequestBody StockValueChangeDTO stockValueChangeDTO) throws URISyntaxException {
-        log.debug("REST request to update StockValueChange : {}", stockValueChangeDTO);
-        if (stockValueChangeDTO.getId() == null) {
-            throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");
-        }
-        StockValueChangeDTO result = stockValueChangeService.save(stockValueChangeDTO);
-        return ResponseEntity.ok()
-            .headers(HeaderUtil.createEntityUpdateAlert(applicationName, true, ENTITY_NAME, stockValueChangeDTO.getId().toString()))
-            .body(result);
+    @PreAuthorize("hasAnyAuthority('ROLE_ADMIN', 'ROLE_STOCK_BROKER')")
+    public ResponseEntity<StockValueChangeDTO> createStockValueChange(@RequestBody List<StockValueChangeDTO> stockValueChangeDTOs) throws URISyntaxException {
+        log.debug("REST request to save StockValueChange : {}", stockValueChangeDTOs);
+        stockValueChangeService.save(stockValueChangeDTOs);
+        return ResponseEntity.status(200).build();
     }
 
     /**

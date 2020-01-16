@@ -1,5 +1,7 @@
 package at.steiner.casino.service.impl;
 
+import at.steiner.casino.domain.Stock;
+import at.steiner.casino.repository.StockRepository;
 import at.steiner.casino.service.StockValueChangeService;
 import at.steiner.casino.domain.StockValueChange;
 import at.steiner.casino.repository.StockValueChangeRepository;
@@ -26,26 +28,36 @@ public class StockValueChangeServiceImpl implements StockValueChangeService {
     private final Logger log = LoggerFactory.getLogger(StockValueChangeServiceImpl.class);
 
     private final StockValueChangeRepository stockValueChangeRepository;
+    private final StockRepository stockRepository;
 
     private final StockValueChangeMapper stockValueChangeMapper;
 
-    public StockValueChangeServiceImpl(StockValueChangeRepository stockValueChangeRepository, StockValueChangeMapper stockValueChangeMapper) {
+    public StockValueChangeServiceImpl(StockValueChangeRepository stockValueChangeRepository, StockRepository stockRepository, StockValueChangeMapper stockValueChangeMapper) {
         this.stockValueChangeRepository = stockValueChangeRepository;
+        this.stockRepository = stockRepository;
         this.stockValueChangeMapper = stockValueChangeMapper;
     }
 
     /**
      * Save a stockValueChange.
      *
-     * @param stockValueChangeDTO the entity to save.
+     * @param stockValueChangeDTOs the entity to save.
      * @return the persisted entity.
      */
     @Override
-    public StockValueChangeDTO save(StockValueChangeDTO stockValueChangeDTO) {
-        log.debug("Request to save StockValueChange : {}", stockValueChangeDTO);
-        StockValueChange stockValueChange = stockValueChangeMapper.toEntity(stockValueChangeDTO);
-        stockValueChange = stockValueChangeRepository.save(stockValueChange);
-        return stockValueChangeMapper.toDto(stockValueChange);
+    @Transactional
+    public List<StockValueChangeDTO> save(List<StockValueChangeDTO> stockValueChangeDTOs) {
+        log.debug("Request to save StockValueChange : {}", stockValueChangeDTOs);
+        List<StockValueChange> stockValueChanges = stockValueChangeMapper.toEntity(stockValueChangeDTOs);
+        stockValueChanges = stockValueChangeRepository.saveAll(stockValueChanges);
+
+        for (StockValueChange stockValueChange : stockValueChanges) {
+            Stock stock = stockValueChange.getStock();
+            stock.setValue(stockValueChange.getValue());
+            stockRepository.save(stock);
+        }
+
+        return stockValueChangeMapper.toDto(stockValueChanges);
     }
 
     /**
