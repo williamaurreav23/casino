@@ -12,6 +12,8 @@
         "gameEnded": "Game Ended",
         "playerMoneyTransaction": "Player Money Transaction",
         "playerStockTransaction": "Player Stock Transaction",
+        "playerStock": "Player Stock",
+        "stockValueChange": "Stock Value Change",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

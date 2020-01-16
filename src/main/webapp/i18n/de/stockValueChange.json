@@ -1,0 +1,24 @@
+{
+  "casinoApp": {
+    "stockValueChange": {
+      "home": {
+        "title": "Stock Value Changes",
+        "createLabel": "Stock Value Change erstellen",
+        "createOrEditLabel": "Stock Value Change erstellen oder bearbeiten",
+        "notFound": "No Stock Value Changes found"
+      },
+      "created": "Stock Value Change erstellt mit ID {{ param }}",
+      "updated": "Stock Value Change aktualisiert mit ID {{ param }}",
+      "deleted": "Stock Value Change gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll Stock Value Change {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Stock Value Change"
+      },
+      "time": "Time",
+      "value": "Value",
+      "stock": "Stock"
+    }
+  }
+}

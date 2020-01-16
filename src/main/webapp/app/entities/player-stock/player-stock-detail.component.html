@@ -1,0 +1,39 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="playerStock">
+            <h2><span jhiTranslate="casinoApp.playerStock.detail.title">Player Stock</span> {{playerStock.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="casinoApp.playerStock.amount">Amount</span></dt>
+                <dd>
+                    <span>{{playerStock.amount}}</span>
+                </dd>
+                <dt><span jhiTranslate="casinoApp.playerStock.player">Player</span></dt>
+                <dd>
+                    <div *ngIf="playerStock.playerId">
+                        <a [routerLink]="['/player', playerStock.playerId, 'view']">{{playerStock.playerId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="casinoApp.playerStock.stock">Stock</span></dt>
+                <dd>
+                    <div *ngIf="playerStock.stockId">
+                        <a [routerLink]="['/stock', playerStock.stockId, 'view']">{{playerStock.stockId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/player-stock', playerStock.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

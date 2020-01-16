@@ -1,0 +1,24 @@
+{
+  "casinoApp": {
+    "playerStock": {
+      "home": {
+        "title": "Player Stocks",
+        "createLabel": "Player Stock erstellen",
+        "createOrEditLabel": "Player Stock erstellen oder bearbeiten",
+        "notFound": "No Player Stocks found"
+      },
+      "created": "Player Stock erstellt mit ID {{ param }}",
+      "updated": "Player Stock aktualisiert mit ID {{ param }}",
+      "deleted": "Player Stock gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll Player Stock {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Player Stock"
+      },
+      "amount": "Amount",
+      "player": "Player",
+      "stock": "Stock"
+    }
+  }
+}

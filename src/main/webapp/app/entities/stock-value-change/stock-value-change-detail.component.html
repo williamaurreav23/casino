@@ -1,0 +1,37 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="stockValueChange">
+            <h2><span jhiTranslate="casinoApp.stockValueChange.detail.title">Stock Value Change</span> {{stockValueChange.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="casinoApp.stockValueChange.time">Time</span></dt>
+                <dd>
+                    <span>{{stockValueChange.time}}</span>
+                </dd>
+                <dt><span jhiTranslate="casinoApp.stockValueChange.value">Value</span></dt>
+                <dd>
+                    <span>{{stockValueChange.value}}</span>
+                </dd>
+                <dt><span jhiTranslate="casinoApp.stockValueChange.stock">Stock</span></dt>
+                <dd>
+                    <div *ngIf="stockValueChange.stockId">
+                        <a [routerLink]="['/stock', stockValueChange.stockId, 'view']">{{stockValueChange.stockId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/stock-value-change', stockValueChange.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

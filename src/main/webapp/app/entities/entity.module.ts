@@ -25,6 +25,14 @@ import { RouterModule } from '@angular/router';
         path: 'player-stock-transaction',
         loadChildren: () =>
           import('./player-stock-transaction/player-stock-transaction.module').then(m => m.CasinoPlayerStockTransactionModule)
+      },
+      {
+        path: 'player-stock',
+        loadChildren: () => import('./player-stock/player-stock.module').then(m => m.CasinoPlayerStockModule)
+      },
+      {
+        path: 'stock-value-change',
+        loadChildren: () => import('./stock-value-change/stock-value-change.module').then(m => m.CasinoStockValueChangeModule)
       }
       /* jhipster-needle-add-entity-route - JHipster will add entity modules routes here */
     ])
