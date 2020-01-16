@@ -10,6 +10,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
@@ -46,6 +47,7 @@ public class PlayerStockResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PostMapping("/player-stocks")
+    @PreAuthorize("hasAnyAuthority('ROLE_ADMIN,', 'ROLE_STOCK_BROKER')")
     public ResponseEntity<PlayerStockDTO> createPlayerStock(@RequestBody PlayerStockDTO playerStockDTO) throws URISyntaxException {
         log.debug("REST request to save PlayerStock : {}", playerStockDTO);
         if (playerStockDTO.getId() != null) {
@@ -58,36 +60,16 @@ public class PlayerStockResource {
     }
 
     /**
-     * {@code PUT  /player-stocks} : Updates an existing playerStock.
+     * {@code GET  /players/:id} : get the "id" player's money.
      *
-     * @param playerStockDTO the playerStockDTO to update.
-     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the updated playerStockDTO,
-     * or with status {@code 400 (Bad Request)} if the playerStockDTO is not valid,
-     * or with status {@code 500 (Internal Server Error)} if the playerStockDTO couldn't be updated.
-     * @throws URISyntaxException if the Location URI syntax is incorrect.
+     * @param id the id of the playerDTO to retrieve.
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the player's list of stocks.
      */
-    @PutMapping("/player-stocks")
-    public ResponseEntity<PlayerStockDTO> updatePlayerStock(@RequestBody PlayerStockDTO playerStockDTO) throws URISyntaxException {
-        log.debug("REST request to update PlayerStock : {}", playerStockDTO);
-        if (playerStockDTO.getId() == null) {
-            throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");
-        }
-        PlayerStockDTO result = playerStockService.save(playerStockDTO);
-        return ResponseEntity.ok()
-            .headers(HeaderUtil.createEntityUpdateAlert(applicationName, true, ENTITY_NAME, playerStockDTO.getId().toString()))
-            .body(result);
-    }
-
-    /**
-     * {@code GET  /player-stocks} : get all the playerStocks.
-     *
-
-     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of playerStocks in body.
-     */
-    @GetMapping("/player-stocks")
-    public List<PlayerStockDTO> getAllPlayerStocks() {
-        log.debug("REST request to get all PlayerStocks");
-        return playerStockService.findAll();
+    @GetMapping("/player-stocks/{id}/stock")
+    public ResponseEntity<List<PlayerStockDTO>> getAllPlayerStocks(@PathVariable Long id) {
+        log.debug("REST request to get Player : {}'s stock", id);
+        List<PlayerStockDTO> playerStockDTOs = playerStockService.findAllByPlayerId(id);
+        return ResponseEntity.status(200).body(playerStockDTOs);
     }
 
     /**

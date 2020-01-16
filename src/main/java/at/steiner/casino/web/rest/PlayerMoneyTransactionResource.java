@@ -84,35 +84,9 @@ public class PlayerMoneyTransactionResource {
 
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of playerMoneyTransactions in body.
      */
-    @GetMapping("/player-money-transactions")
-    public List<PlayerMoneyTransactionDTO> getAllPlayerMoneyTransactions() {
-        log.debug("REST request to get all PlayerMoneyTransactions");
-        return playerMoneyTransactionService.findAll();
-    }
-
-    /**
-     * {@code GET  /player-money-transactions/:id} : get the "id" playerMoneyTransaction.
-     *
-     * @param id the id of the playerMoneyTransactionDTO to retrieve.
-     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the playerMoneyTransactionDTO, or with status {@code 404 (Not Found)}.
-     */
     @GetMapping("/player-money-transactions/{id}")
-    public ResponseEntity<PlayerMoneyTransactionDTO> getPlayerMoneyTransaction(@PathVariable Long id) {
-        log.debug("REST request to get PlayerMoneyTransaction : {}", id);
-        Optional<PlayerMoneyTransactionDTO> playerMoneyTransactionDTO = playerMoneyTransactionService.findOne(id);
-        return ResponseUtil.wrapOrNotFound(playerMoneyTransactionDTO);
-    }
-
-    /**
-     * {@code DELETE  /player-money-transactions/:id} : delete the "id" playerMoneyTransaction.
-     *
-     * @param id the id of the playerMoneyTransactionDTO to delete.
-     * @return the {@link ResponseEntity} with status {@code 204 (NO_CONTENT)}.
-     */
-    @DeleteMapping("/player-money-transactions/{id}")
-    public ResponseEntity<Void> deletePlayerMoneyTransaction(@PathVariable Long id) {
-        log.debug("REST request to delete PlayerMoneyTransaction : {}", id);
-        playerMoneyTransactionService.delete(id);
-        return ResponseEntity.noContent().headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString())).build();
+    public List<PlayerMoneyTransactionDTO> getAllPlayerMoneyTransactions(@PathVariable Long id) {
+        log.debug("REST request to get all PlayerMoneyTransactions for Player : {}", id);
+        return playerMoneyTransactionService.findAllByPlayer(id);
     }
 }

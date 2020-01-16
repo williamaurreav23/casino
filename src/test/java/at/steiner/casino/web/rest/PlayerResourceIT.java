@@ -4,6 +4,7 @@ import at.steiner.casino.CasinoApp;
 import at.steiner.casino.domain.Player;
 import at.steiner.casino.repository.PlayerRepository;
 import at.steiner.casino.service.PlayerService;
+import at.steiner.casino.service.PlayerStockService;
 import at.steiner.casino.service.dto.PlayerDTO;
 import at.steiner.casino.service.mapper.PlayerMapper;
 import at.steiner.casino.web.rest.errors.ExceptionTranslator;
@@ -58,6 +59,9 @@ public class PlayerResourceIT {
     private PlayerService playerService;
 
     @Autowired
+    private PlayerStockService playerStockService;
+
+    @Autowired
     private MappingJackson2HttpMessageConverter jacksonMessageConverter;
 
     @Autowired
@@ -79,7 +83,7 @@ public class PlayerResourceIT {
     @BeforeEach
     public void setup() {
         MockitoAnnotations.initMocks(this);
-        final PlayerResource playerResource = new PlayerResource(playerService);
+        final PlayerResource playerResource = new PlayerResource(playerService, playerStockService);
         this.restPlayerMockMvc = MockMvcBuilders.standaloneSetup(playerResource)
             .setCustomArgumentResolvers(pageableArgumentResolver)
             .setControllerAdvice(exceptionTranslator)
@@ -181,7 +185,7 @@ public class PlayerResourceIT {
             .andExpect(jsonPath("$.[*].passNumber").value(hasItem(DEFAULT_PASS_NUMBER)))
             .andExpect(jsonPath("$.[*].money").value(hasItem(DEFAULT_MONEY)));
     }
-    
+
     @Test
     @Transactional
     public void getPlayer() throws Exception {

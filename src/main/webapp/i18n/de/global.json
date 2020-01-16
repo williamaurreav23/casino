@@ -14,6 +14,7 @@
         "playerStockTransaction": "Player Stock Transaction",
         "playerStock": "Player Stock",
         "stockValueChange": "Stock Value Change",
+        "userExtra": "User Extra",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

@@ -55,9 +55,9 @@ public class PlayerMoneyTransactionServiceImpl implements PlayerMoneyTransaction
      */
     @Override
     @Transactional(readOnly = true)
-    public List<PlayerMoneyTransactionDTO> findAll() {
-        log.debug("Request to get all PlayerMoneyTransactions");
-        return playerMoneyTransactionRepository.findAll().stream()
+    public List<PlayerMoneyTransactionDTO> findAllByPlayer(Long playerId) {
+        log.debug("Request to get all PlayerMoneyTransactions for Player : {}", playerId);
+        return playerMoneyTransactionRepository.findAllByPlayerIdOrderByTimeAsc(playerId).stream()
             .map(playerMoneyTransactionMapper::toDto)
             .collect(Collectors.toCollection(LinkedList::new));
     }

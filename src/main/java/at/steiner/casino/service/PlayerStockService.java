@@ -35,6 +35,14 @@ public interface PlayerStockService {
     Optional<PlayerStockDTO> findOne(Long id);
 
     /**
+     * Get all playerStock owned by player with id.
+     *
+     * @param playerId the id of the owning player.
+     * @return all entities.
+     */
+    List<PlayerStockDTO> findAllByPlayerId(Long playerId);
+
+    /**
      * Delete the "id" playerStock.
      *
      * @param id the id of the entity.

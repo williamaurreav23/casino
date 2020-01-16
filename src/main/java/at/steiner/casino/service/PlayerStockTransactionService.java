@@ -23,7 +23,7 @@ public interface PlayerStockTransactionService {
      *
      * @return the list of entities.
      */
-    List<PlayerStockTransactionDTO> findAll();
+    List<PlayerStockTransactionDTO> findAllByPlayerStock(Long playerId, Long stockId);
 
 
     /**

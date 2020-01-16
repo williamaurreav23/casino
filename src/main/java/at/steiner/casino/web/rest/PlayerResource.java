@@ -1,6 +1,9 @@
 package at.steiner.casino.web.rest;
 
 import at.steiner.casino.service.PlayerService;
+import at.steiner.casino.service.PlayerStockService;
+import at.steiner.casino.service.dto.PlayerStockDTO;
+import at.steiner.casino.service.dto.StockRequestDTO;
 import at.steiner.casino.web.rest.errors.BadRequestAlertException;
 import at.steiner.casino.service.dto.PlayerDTO;
 
@@ -10,6 +13,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
@@ -33,9 +37,11 @@ public class PlayerResource {
     private String applicationName;
 
     private final PlayerService playerService;
+    private final PlayerStockService playerStockService;
 
-    public PlayerResource(PlayerService playerService) {
+    public PlayerResource(PlayerService playerService, PlayerStockService playerStockService) {
         this.playerService = playerService;
+        this.playerStockService = playerStockService;
     }
 
     /**
@@ -46,6 +52,7 @@ public class PlayerResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PostMapping("/players")
+    @PreAuthorize("hasAnyAuthority('ROLE_ADMIN', 'ROLE_REGISTRAR')")
     public ResponseEntity<PlayerDTO> createPlayer(@RequestBody PlayerDTO playerDTO) throws URISyntaxException {
         log.debug("REST request to save Player : {}", playerDTO);
         if (playerDTO.getId() != null) {
@@ -67,6 +74,7 @@ public class PlayerResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PutMapping("/players")
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     public ResponseEntity<PlayerDTO> updatePlayer(@RequestBody PlayerDTO playerDTO) throws URISyntaxException {
         log.debug("REST request to update Player : {}", playerDTO);
         if (playerDTO.getId() == null) {
@@ -85,6 +93,7 @@ public class PlayerResource {
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of players in body.
      */
     @GetMapping("/players")
+    @PreAuthorize("hasAuthority('ROLE_USER')")
     public List<PlayerDTO> getAllPlayers() {
         log.debug("REST request to get all Players");
         return playerService.findAll();
@@ -104,15 +113,18 @@ public class PlayerResource {
     }
 
     /**
-     * {@code DELETE  /players/:id} : delete the "id" player.
+     * {@code GET  /players/:id/exist} : check for existence of the "id" player.
      *
-     * @param id the id of the playerDTO to delete.
-     * @return the {@link ResponseEntity} with status {@code 204 (NO_CONTENT)}.
+     * @param id the id of the playerDTO to retrieve.
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)}, or with status {@code 404 (Not Found)}.
      */
-    @DeleteMapping("/players/{id}")
-    public ResponseEntity<Void> deletePlayer(@PathVariable Long id) {
-        log.debug("REST request to delete Player : {}", id);
-        playerService.delete(id);
-        return ResponseEntity.noContent().headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString())).build();
+    @GetMapping("/players/{id}/exist")
+    public ResponseEntity<Void> checkPlayerExists(@PathVariable Long id) {
+        log.debug("REST request to check for Player : {}", id);
+        if (playerService.findOne(id).isPresent()) {
+            return ResponseEntity.status(200).build();
+        } else {
+            return ResponseEntity.status(404).build();
+        }
     }
 }

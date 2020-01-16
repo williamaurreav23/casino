@@ -13,6 +13,8 @@ public interface PlayerStockMapper extends EntityMapper<PlayerStockDTO, PlayerSt
 
     @Mapping(source = "player.id", target = "playerId")
     @Mapping(source = "stock.id", target = "stockId")
+    @Mapping(source = "stock.name", target = "stockName")
+    @Mapping(source = "stock.color", target = "stockColor")
     PlayerStockDTO toDto(PlayerStock playerStock);
 
     @Mapping(source = "playerId", target = "player")

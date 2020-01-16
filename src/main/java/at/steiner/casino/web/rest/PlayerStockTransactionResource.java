@@ -84,35 +84,9 @@ public class PlayerStockTransactionResource {
 
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of playerStockTransactions in body.
      */
-    @GetMapping("/player-stock-transactions")
-    public List<PlayerStockTransactionDTO> getAllPlayerStockTransactions() {
+    @GetMapping("/player-stock-transactions/{playerId}/{stockId}")
+    public List<PlayerStockTransactionDTO> getAllPlayerStockTransactions(@PathVariable Long playerId, @PathVariable Long stockId) {
         log.debug("REST request to get all PlayerStockTransactions");
-        return playerStockTransactionService.findAll();
-    }
-
-    /**
-     * {@code GET  /player-stock-transactions/:id} : get the "id" playerStockTransaction.
-     *
-     * @param id the id of the playerStockTransactionDTO to retrieve.
-     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the playerStockTransactionDTO, or with status {@code 404 (Not Found)}.
-     */
-    @GetMapping("/player-stock-transactions/{id}")
-    public ResponseEntity<PlayerStockTransactionDTO> getPlayerStockTransaction(@PathVariable Long id) {
-        log.debug("REST request to get PlayerStockTransaction : {}", id);
-        Optional<PlayerStockTransactionDTO> playerStockTransactionDTO = playerStockTransactionService.findOne(id);
-        return ResponseUtil.wrapOrNotFound(playerStockTransactionDTO);
-    }
-
-    /**
-     * {@code DELETE  /player-stock-transactions/:id} : delete the "id" playerStockTransaction.
-     *
-     * @param id the id of the playerStockTransactionDTO to delete.
-     * @return the {@link ResponseEntity} with status {@code 204 (NO_CONTENT)}.
-     */
-    @DeleteMapping("/player-stock-transactions/{id}")
-    public ResponseEntity<Void> deletePlayerStockTransaction(@PathVariable Long id) {
-        log.debug("REST request to delete PlayerStockTransaction : {}", id);
-        playerStockTransactionService.delete(id);
-        return ResponseEntity.noContent().headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString())).build();
+        return playerStockTransactionService.findAllByPlayerStock(playerId, stockId);
     }
 }

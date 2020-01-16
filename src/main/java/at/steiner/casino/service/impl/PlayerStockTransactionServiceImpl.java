@@ -55,9 +55,9 @@ public class PlayerStockTransactionServiceImpl implements PlayerStockTransaction
      */
     @Override
     @Transactional(readOnly = true)
-    public List<PlayerStockTransactionDTO> findAll() {
+    public List<PlayerStockTransactionDTO> findAllByPlayerStock(Long playerId, Long stockId) {
         log.debug("Request to get all PlayerStockTransactions");
-        return playerStockTransactionRepository.findAll().stream()
+        return playerStockTransactionRepository.findAllByPlayerIdAndStockIdOrderByTimeAsc(playerId, stockId).stream()
             .map(playerStockTransactionMapper::toDto)
             .collect(Collectors.toCollection(LinkedList::new));
     }

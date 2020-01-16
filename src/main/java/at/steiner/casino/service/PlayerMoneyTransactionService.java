@@ -23,7 +23,7 @@ public interface PlayerMoneyTransactionService {
      *
      * @return the list of entities.
      */
-    List<PlayerMoneyTransactionDTO> findAll();
+    List<PlayerMoneyTransactionDTO> findAllByPlayer(Long playerId);
 
 
     /**

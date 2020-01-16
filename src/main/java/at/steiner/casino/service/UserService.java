@@ -3,12 +3,16 @@ package at.steiner.casino.service;
 import at.steiner.casino.config.Constants;
 import at.steiner.casino.domain.Authority;
 import at.steiner.casino.domain.User;
+import at.steiner.casino.domain.UserExtra;
+import at.steiner.casino.domain.enumeration.Transaction;
 import at.steiner.casino.repository.AuthorityRepository;
+import at.steiner.casino.repository.UserExtraRepository;
 import at.steiner.casino.repository.UserRepository;
 import at.steiner.casino.security.AuthoritiesConstants;
 import at.steiner.casino.security.SecurityUtils;
 import at.steiner.casino.service.dto.UserDTO;
 
+import at.steiner.casino.web.rest.vm.ManagedUserVM;
 import io.github.jhipster.security.RandomUtil;
 
 import org.slf4j.Logger;
@@ -37,14 +41,17 @@ public class UserService {
 
     private final UserRepository userRepository;
 
+    private final UserExtraRepository userExtraRepository;
+
     private final PasswordEncoder passwordEncoder;
 
     private final AuthorityRepository authorityRepository;
 
     private final CacheManager cacheManager;
 
-    public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder, AuthorityRepository authorityRepository, CacheManager cacheManager) {
+    public UserService(UserRepository userRepository, UserExtraRepository userExtraRepository, PasswordEncoder passwordEncoder, AuthorityRepository authorityRepository, CacheManager cacheManager) {
         this.userRepository = userRepository;
+        this.userExtraRepository = userExtraRepository;
         this.passwordEncoder = passwordEncoder;
         this.authorityRepository = authorityRepository;
         this.cacheManager = cacheManager;
@@ -87,7 +94,7 @@ public class UserService {
             });
     }
 
-    public User registerUser(UserDTO userDTO, String password) {
+    public User registerUser(UserDTO userDTO, String password, Transaction transaction) {
         userRepository.findOneByLogin(userDTO.getLogin().toLowerCase()).ifPresent(existingUser -> {
             boolean removed = removeNonActivatedUser(existingUser);
             if (!removed) {
@@ -120,6 +127,12 @@ public class UserService {
         authorityRepository.findById(AuthoritiesConstants.USER).ifPresent(authorities::add);
         newUser.setAuthorities(authorities);
         userRepository.save(newUser);
+
+        UserExtra newUserExtra = new UserExtra();
+        newUserExtra.setUser(newUser);
+        newUserExtra.setTransaction(transaction);
+        userExtraRepository.save(newUserExtra);
+
         this.clearUserCaches(newUser);
         log.debug("Created Information for User: {}", newUser);
         return newUser;

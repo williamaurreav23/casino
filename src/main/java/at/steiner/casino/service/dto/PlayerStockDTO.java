@@ -16,6 +16,10 @@ public class PlayerStockDTO implements Serializable {
 
     private Long stockId;
 
+    private String stockName;
+
+    private String stockColor;
+
     public Long getId() {
         return id;
     }
@@ -46,6 +50,33 @@ public class PlayerStockDTO implements Serializable {
 
     public void setStockId(Long stockId) {
         this.stockId = stockId;
+    }
+
+    public String getStockName() {
+        return stockName;
+    }
+
+    public void setStockName(String stockName) {
+        this.stockName = stockName;
+    }
+
+    public String getStockColor() {
+        return stockColor;
+    }
+
+    public void setStockColor(String stockColor) {
+        this.stockColor = stockColor;
+    }
+
+    public PlayerStockDTO() {
+    }
+
+    public PlayerStockDTO(Integer amount, Long playerId, StockDTO stock) {
+        this.amount = amount;
+        this.playerId = playerId;
+        this.stockId = stock.getId();
+        this.stockName = stock.getName();
+        this.stockColor = stock.getColor();
     }
 
     @Override

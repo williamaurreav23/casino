@@ -1,5 +1,6 @@
 package at.steiner.casino.web.rest.vm;
 
+import at.steiner.casino.domain.enumeration.Transaction;
 import at.steiner.casino.service.dto.UserDTO;
 import javax.validation.constraints.Size;
 
@@ -15,6 +16,8 @@ public class ManagedUserVM extends UserDTO {
     @Size(min = PASSWORD_MIN_LENGTH, max = PASSWORD_MAX_LENGTH)
     private String password;
 
+    private Transaction transaction;
+
     public ManagedUserVM() {
         // Empty constructor needed for Jackson.
     }
@@ -25,6 +28,14 @@ public class ManagedUserVM extends UserDTO {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public Transaction getTransaction() {
+        return transaction;
+    }
+
+    public void setTransaction(Transaction transaction) {
+        this.transaction = transaction;
     }
 
     @Override

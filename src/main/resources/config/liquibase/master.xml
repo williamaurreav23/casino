@@ -21,10 +21,12 @@
     <include file="config/liquibase/changelog/20200116120149_added_entity_PlayerStockTransaction.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20200116120330_added_entity_PlayerStock.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20200116120458_added_entity_StockValueChange.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200116223437_added_entity_UserExtra.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
     <include file="config/liquibase/changelog/20200116120011_added_entity_constraints_PlayerMoneyTransaction.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20200116120149_added_entity_constraints_PlayerStockTransaction.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20200116120330_added_entity_constraints_PlayerStock.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20200116120458_added_entity_constraints_StockValueChange.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200116223437_added_entity_constraints_UserExtra.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 </databaseChangeLog>
