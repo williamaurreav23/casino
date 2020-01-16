@@ -1,0 +1,28 @@
+{
+  "casinoApp": {
+    "player": {
+      "home": {
+        "title": "Players",
+        "createLabel": "Player erstellen",
+        "createOrEditLabel": "Player erstellen oder bearbeiten",
+        "notFound": "No Players found"
+      },
+      "created": "Player erstellt mit ID {{ param }}",
+      "updated": "Player aktualisiert mit ID {{ param }}",
+      "deleted": "Player gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll Player {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Player"
+      },
+      "name": "Name",
+      "isChild": "Is Child",
+      "passNumber": "Pass Number",
+      "money": "Money",
+      "playerMoneyTransaction": "Player Money Transaction",
+      "playerStockTransaction": "Player Stock Transaction",
+      "playerStock": "Player Stock"
+    }
+  }
+}

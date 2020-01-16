@@ -1,0 +1,51 @@
+{
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "relationships": [
+        {
+            "relationshipName": "playerMoneyTransaction",
+            "otherEntityName": "playerMoneyTransaction",
+            "relationshipType": "one-to-many",
+            "otherEntityRelationshipName": "player"
+        },
+        {
+            "relationshipName": "playerStockTransaction",
+            "otherEntityName": "playerStockTransaction",
+            "relationshipType": "one-to-many",
+            "otherEntityRelationshipName": "player"
+        },
+        {
+            "relationshipName": "playerStock",
+            "otherEntityName": "playerStock",
+            "relationshipType": "one-to-many",
+            "otherEntityRelationshipName": "player"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "isChild",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "passNumber",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "money",
+            "fieldType": "Integer"
+        }
+    ],
+    "changelogDate": "20200116115218",
+    "dto": "mapstruct",
+    "searchEngine": false,
+    "service": "serviceImpl",
+    "entityTableName": "player",
+    "databaseType": "sql",
+    "readOnly": false,
+    "jpaMetamodelFiltering": false,
+    "pagination": "no"
+}

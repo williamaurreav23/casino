@@ -1,4 +1,4 @@
-<nav class="navbar navbar-primary navbar-expand-md bg-primary">
+<nav class="navbar navbar-dark navbar-expand-md bg-dark">
     <a class="navbar-brand logo" routerLink="/" (click)="collapseNavbar()">
         <span class="logo-img"></span>
         <span jhiTranslate="global.title" class="navbar-title">Casino</span> <span class="navbar-version">{{version}}</span>
@@ -28,45 +28,9 @@
                 </a>
                 <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="entity-menu">
                     <li>
-                        <a class="dropdown-item" routerLink="spieler" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                        <a class="dropdown-item" routerLink="player" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
-                            <span jhiTranslate="global.menu.entities.spieler">Spieler</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" routerLink="aktie" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
-                            <span jhiTranslate="global.menu.entities.aktie">Aktie</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" routerLink="spieler-transaktion" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
-                            <span jhiTranslate="global.menu.entities.spielerTransaktion">Spieler Transaktion</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" routerLink="aktie-wert" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
-                            <span jhiTranslate="global.menu.entities.aktieWert">Aktie Wert</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" routerLink="spieler-aktie" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
-                            <span jhiTranslate="global.menu.entities.spielerAktie">Spieler Aktie</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" routerLink="spieler-aktie-history" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
-                            <span jhiTranslate="global.menu.entities.spielerAktieHistory">Spieler Aktie History</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" routerLink="aktie-wert-history" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
-                            <span jhiTranslate="global.menu.entities.aktieWertHistory">Aktie Wert History</span>
+                            <span jhiTranslate="global.menu.entities.player">Player</span>
                         </a>
                     </li>
                     <!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here -->

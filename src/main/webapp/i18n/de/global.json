@@ -7,13 +7,7 @@
       "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
       "entities": {
         "main": "Entitäten",
-        "spieler": "Spieler",
-        "aktie": "Aktie",
-        "spielerTransaktion": "Spieler Transaktion",
-        "aktieWert": "Aktie Wert",
-        "spielerAktie": "Spieler Aktie",
-        "spielerAktieHistory": "Spieler Aktie History",
-        "aktieWertHistory": "Aktie Wert History",
+        "player": "Player",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {
@@ -136,7 +130,11 @@
     "userexists": "Benutzername bereits vergeben!",
     "emailexists": "Email wird bereits verwendet!",
     "idexists": "Ein neuer {{entityName}} kann noch keine ID haben",
-    "idnull": "Ungültige ID"
+    "idnull": "Ungültige ID",
+    "file": {
+      "could.not.extract": "Could not extract file",
+      "not.image": "File was expected to be an image but was found to be \"{{ fileType }}\""
+    }
   },
   "footer": "Dies ist Ihre Fußzeile"
 }

@@ -1,60 +1,43 @@
 {
-  "generator-jhipster-kotlin": {
+  "generator-jhipster": {
     "promptValues": {
-      "packageName": "at.sebastian"
+      "packageName": "at.steiner.casino",
+      "nativeLanguage": "de"
     },
-    "jhipsterVersion": "6.4.1",
+    "jhipsterVersion": "6.6.0",
     "applicationType": "monolith",
     "baseName": "casino",
-    "packageName": "at.sebastian",
-    "packageFolder": "at/sebastian",
+    "packageName": "at.steiner.casino",
+    "packageFolder": "at/steiner/casino",
     "serverPort": "8080",
     "authenticationType": "jwt",
     "cacheProvider": "ehcache",
     "enableHibernateCache": true,
     "websocket": false,
     "databaseType": "sql",
-    "devDatabaseType": "h2Disk",
+    "devDatabaseType": "h2Memory",
     "prodDatabaseType": "postgresql",
     "searchEngine": false,
     "messageBroker": false,
-    "serviceDiscoveryType": "eureka",
+    "serviceDiscoveryType": false,
     "buildTool": "maven",
     "enableSwaggerCodegen": false,
-    "jwtSecretKey": "ODZhYjY5M2Q3MDRmMDAzYzI4MjYxOGNhNmVlZDA1YTdiOWNiMjNiM2M2ODI1ZGNkMjk5OTJiNjg4NWUxODQ2M2I1OGNlOGMzOTEzMTE3ZGUyOWEzN2YyZDQzYjViMGM2NGY5ZTE5NTMxZmM5MDhkZThiMTMwNzQzYjAwOTFkNjY=",
+    "jwtSecretKey": "YTNhZWUxMmNjZTMxZjU2NGM3ZjkwOTU1ZmZlN2M2YzVhMTY2OTJhZWNmNDU4MzdmMzY0MDdiOWNlMWE4NzA5NWUyODJjYmYwNWRhYjUwM2Q2Y2NkZDA5ZGRhYmY4YTUxOWE3NDJkNzg5YTQ1ZmVhZGY5MmRlZWI1NGM3ZjJlOGM=",
     "embeddableLaunchScript": false,
-    "enableTranslation": true
-  },
-  "generator-jhipster": {
-    "promptValues": {
-      "nativeLanguage": "de"
-    },
-    "jhipsterVersion": "6.4.1",
-    "applicationType": "monolith",
-    "baseName": "casino",
     "useSass": true,
     "clientPackageManager": "npm",
     "clientFramework": "angularX",
-    "clientTheme": "lux",
-    "clientThemeVariant": "primary",
-    "testFrameworks": ["gatling", "protractor"],
+    "clientTheme": "none",
+    "clientThemeVariant": "",
+    "creationTimestamp": 1579172754922,
+    "testFrameworks": [],
     "jhiPrefix": "jhi",
     "entitySuffix": "",
     "dtoSuffix": "DTO",
-    "otherModules": [
-      {
-        "name": "generator-jhipster-kotlin",
-        "version": "1.3.0"
-      }
-    ],
+    "otherModules": [],
     "enableTranslation": true,
     "nativeLanguage": "de",
     "languages": ["de"],
-    "blueprints": [
-      {
-        "name": "generator-jhipster-kotlin",
-        "version": "1.3.0"
-      }
-    ]
+    "blueprints": []
   }
 }

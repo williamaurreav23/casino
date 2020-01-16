@@ -13,19 +13,12 @@
 # http://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html
 # ===================================================================
 
-eureka:
-  client:
-    enabled: false
-  instance:
-    appname: casino
-    instanceId: casino:${spring.application.instance-id:${random.value}}
-
 spring:
   application:
     name: casino
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
-    url: jdbc:h2:mem:casino;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE;MULTI_THREADED=FALSE
+    url: jdbc:h2:mem:casino;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
     name:
     username:
     password:
@@ -102,7 +95,7 @@ jhipster:
     authentication:
       jwt:
         # This token must be encoded using Base64 (you can type `echo 'secret-key'|base64` on your command line)
-        base64-secret: ODZhYjY5M2Q3MDRmMDAzYzI4MjYxOGNhNmVlZDA1YTdiOWNiMjNiM2M2ODI1ZGNkMjk5OTJiNjg4NWUxODQ2M2I1OGNlOGMzOTEzMTE3ZGUyOWEzN2YyZDQzYjViMGM2NGY5ZTE5NTMxZmM5MDhkZThiMTMwNzQzYjAwOTFkNjY=
+        base64-secret: YTNhZWUxMmNjZTMxZjU2NGM3ZjkwOTU1ZmZlN2M2YzVhMTY2OTJhZWNmNDU4MzdmMzY0MDdiOWNlMWE4NzA5NWUyODJjYmYwNWRhYjUwM2Q2Y2NkZDA5ZGRhYmY4YTUxOWE3NDJkNzg5YTQ1ZmVhZGY5MmRlZWI1NGM3ZjJlOGM=
         # Token is valid 24 hours
         token-validity-in-seconds: 86400
   metrics:

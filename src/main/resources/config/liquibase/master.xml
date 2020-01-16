@@ -14,18 +14,7 @@
     <property name="uuidType" value="uuid" dbms="h2, postgresql"/>
 
     <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20191213230737_added_entity_Spieler.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20191213230928_added_entity_Aktie.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20191213231318_added_entity_SpielerTransaktion.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20191213231827_added_entity_AktieWert.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20191213232022_added_entity_SpielerAktie.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20191213232306_added_entity_SpielerAktieHistory.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20191213232440_added_entity_AktieWertHistory.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200116115218_added_entity_Player.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
-    <include file="config/liquibase/changelog/20191213231318_added_entity_constraints_SpielerTransaktion.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20191213231827_added_entity_constraints_AktieWert.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20191213232022_added_entity_constraints_SpielerAktie.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20191213232306_added_entity_constraints_SpielerAktieHistory.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20191213232440_added_entity_constraints_AktieWertHistory.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 </databaseChangeLog>
