@@ -1,0 +1,42 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-user-extra-heading" jhiTranslate="casinoApp.userExtra.home.createOrEditLabel">Create or edit a User Extra</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="casinoApp.userExtra.transaction" for="field_transaction">Transaction</label>
+                    <select class="form-control" name="transaction" formControlName="transaction" id="field_transaction">
+                        <option value="START">{{'casinoApp.Transaction.START' | translate}}</option>
+                        <option value="ROULETTE">{{'casinoApp.Transaction.ROULETTE' | translate}}</option>
+                        <option value="BLACK_JACK">{{'casinoApp.Transaction.BLACK_JACK' | translate}}</option>
+                        <option value="POKER">{{'casinoApp.Transaction.POKER' | translate}}</option>
+                        <option value="STOCK">{{'casinoApp.Transaction.STOCK' | translate}}</option>
+                        <option value="OTHER">{{'casinoApp.Transaction.OTHER' | translate}}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="casinoApp.userExtra.user" for="field_user">User</label>
+                    <select class="form-control" id="field_user" name="user" formControlName="user">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="userOption.id === editForm.get('user')!.value?.id ? editForm.get('user')!.value : userOption" *ngFor="let userOption of users; trackBy: trackById">{{userOption.login}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

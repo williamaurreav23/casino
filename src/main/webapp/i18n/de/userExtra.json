@@ -1,0 +1,23 @@
+{
+  "casinoApp": {
+    "userExtra": {
+      "home": {
+        "title": "User Extras",
+        "createLabel": "User Extra erstellen",
+        "createOrEditLabel": "User Extra erstellen oder bearbeiten",
+        "notFound": "No User Extras found"
+      },
+      "created": "User Extra erstellt mit ID {{ param }}",
+      "updated": "User Extra aktualisiert mit ID {{ param }}",
+      "deleted": "User Extra gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll User Extra {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "User Extra"
+      },
+      "transaction": "Transaction",
+      "user": "User"
+    }
+  }
+}
