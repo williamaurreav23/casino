@@ -1,0 +1,27 @@
+{
+  "casinoApp": {
+    "stock": {
+      "home": {
+        "title": "Stocks",
+        "createLabel": "Stock erstellen",
+        "createOrEditLabel": "Stock erstellen oder bearbeiten",
+        "notFound": "No Stocks found"
+      },
+      "created": "Stock erstellt mit ID {{ param }}",
+      "updated": "Stock aktualisiert mit ID {{ param }}",
+      "deleted": "Stock gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll Stock {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Stock"
+      },
+      "name": "Name",
+      "color": "Color",
+      "value": "Value",
+      "playerStockTransaction": "Player Stock Transaction",
+      "playerStock": "Player Stock",
+      "stockValueChange": "Stock Value Change"
+    }
+  }
+}

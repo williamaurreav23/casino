@@ -1,0 +1,47 @@
+{
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "relationships": [
+        {
+            "relationshipName": "playerStockTransaction",
+            "otherEntityName": "playerStockTransaction",
+            "relationshipType": "one-to-many",
+            "otherEntityRelationshipName": "stock"
+        },
+        {
+            "relationshipName": "playerStock",
+            "otherEntityName": "playerStock",
+            "relationshipType": "one-to-many",
+            "otherEntityRelationshipName": "stock"
+        },
+        {
+            "relationshipName": "stockValueChange",
+            "otherEntityName": "stockValueChange",
+            "relationshipType": "one-to-many",
+            "otherEntityRelationshipName": "stock"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "color",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "value",
+            "fieldType": "Integer"
+        }
+    ],
+    "changelogDate": "20200116115540",
+    "dto": "mapstruct",
+    "searchEngine": false,
+    "service": "serviceImpl",
+    "entityTableName": "stock",
+    "databaseType": "sql",
+    "readOnly": false,
+    "jpaMetamodelFiltering": false,
+    "pagination": "no"
+}

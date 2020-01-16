@@ -46,6 +46,10 @@ public class CacheConfiguration {
             createCache(cm, at.steiner.casino.domain.Player.class.getName() + ".playerMoneyTransactions");
             createCache(cm, at.steiner.casino.domain.Player.class.getName() + ".playerStockTransactions");
             createCache(cm, at.steiner.casino.domain.Player.class.getName() + ".playerStocks");
+            createCache(cm, at.steiner.casino.domain.Stock.class.getName());
+            createCache(cm, at.steiner.casino.domain.Stock.class.getName() + ".playerStockTransactions");
+            createCache(cm, at.steiner.casino.domain.Stock.class.getName() + ".playerStocks");
+            createCache(cm, at.steiner.casino.domain.Stock.class.getName() + ".stockValueChanges");
             // jhipster-needle-ehcache-add-entry
         };
     }
