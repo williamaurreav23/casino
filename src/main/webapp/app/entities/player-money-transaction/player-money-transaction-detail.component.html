@@ -1,0 +1,41 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="playerMoneyTransaction">
+            <h2><span jhiTranslate="casinoApp.playerMoneyTransaction.detail.title">Player Money Transaction</span> {{playerMoneyTransaction.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="casinoApp.playerMoneyTransaction.time">Time</span></dt>
+                <dd>
+                    <span>{{playerMoneyTransaction.time}}</span>
+                </dd>
+                <dt><span jhiTranslate="casinoApp.playerMoneyTransaction.transaction">Transaction</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'casinoApp.Transaction.' + playerMoneyTransaction.transaction}}">{{playerMoneyTransaction.transaction}}</span>
+                </dd>
+                <dt><span jhiTranslate="casinoApp.playerMoneyTransaction.value">Value</span></dt>
+                <dd>
+                    <span>{{playerMoneyTransaction.value}}</span>
+                </dd>
+                <dt><span jhiTranslate="casinoApp.playerMoneyTransaction.player">Player</span></dt>
+                <dd>
+                    <div *ngIf="playerMoneyTransaction.playerId">
+                        <a [routerLink]="['/player', playerMoneyTransaction.playerId, 'view']">{{playerMoneyTransaction.playerId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/player-money-transaction', playerMoneyTransaction.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

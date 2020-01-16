@@ -1,0 +1,13 @@
+{
+  "casinoApp": {
+    "Transaction": {
+      "null": "",
+      "START": "START",
+      "ROULETTE": "ROULETTE",
+      "BLACK_JACK": "BLACK_JACK",
+      "POKER": "POKER",
+      "STOCK": "STOCK",
+      "OTHER": "OTHER"
+    }
+  }
+}

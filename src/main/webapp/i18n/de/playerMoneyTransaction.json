@@ -1,0 +1,25 @@
+{
+  "casinoApp": {
+    "playerMoneyTransaction": {
+      "home": {
+        "title": "Player Money Transactions",
+        "createLabel": "Player Money Transaction erstellen",
+        "createOrEditLabel": "Player Money Transaction erstellen oder bearbeiten",
+        "notFound": "No Player Money Transactions found"
+      },
+      "created": "Player Money Transaction erstellt mit ID {{ param }}",
+      "updated": "Player Money Transaction aktualisiert mit ID {{ param }}",
+      "deleted": "Player Money Transaction gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll Player Money Transaction {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Player Money Transaction"
+      },
+      "time": "Time",
+      "transaction": "Transaction",
+      "value": "Value",
+      "player": "Player"
+    }
+  }
+}
