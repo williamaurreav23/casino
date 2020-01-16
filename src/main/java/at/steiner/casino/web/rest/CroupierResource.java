@@ -3,11 +3,8 @@ package at.steiner.casino.web.rest;
 import at.steiner.casino.service.CroupierService;
 import at.steiner.casino.service.PlayerService;
 import at.steiner.casino.service.PlayerStockService;
-import at.steiner.casino.service.dto.PlayerStockDTO;
-import at.steiner.casino.service.dto.StockRequestDTO;
-import at.steiner.casino.service.dto.TransactionDTO;
+import at.steiner.casino.service.dto.*;
 import at.steiner.casino.web.rest.errors.BadRequestAlertException;
-import at.steiner.casino.service.dto.PlayerDTO;
 
 import io.github.jhipster.web.util.HeaderUtil;
 import io.github.jhipster.web.util.ResponseUtil;
@@ -60,7 +57,7 @@ public class CroupierResource {
      * {@code POST  /croupier/transactions/{id}} : Set the users transaction type
      */
     @PostMapping("/croupier/transactions/{id}")
-    @PreAuthorize("hasAuthority('ROLE_CROUPIER')")
+    @PreAuthorize("hasAnyAuthority('ROLE_CROUPIER', 'ROLE_ADMIN')")
     public ResponseEntity<Void> setTransactionType(@PathVariable Integer id) throws URISyntaxException {
         log.debug("REST request to set transaction type to : {}", id);
         if (croupierService.setTransactionType(id)) {
@@ -68,6 +65,16 @@ public class CroupierResource {
         } else {
             return ResponseEntity.status(400).build();
         }
+    }
+
+    /**
+     * {@code POST  /croupier/transactions/} : Create a transaction for a player
+     */
+    @PostMapping("/croupier/transaction")
+    @PreAuthorize("hasAnyAuthority('ROLE_CROUPIER', 'ROLE_ADMIN')")
+    public ResponseEntity<PlayerMoneyTransactionDTO> createTransaction(@RequestBody PlayerMoneyTransactionDTO playerMoneyTransactionDTO) {
+        log.debug("REST request to create transaction");
+        return ResponseEntity.status(200).body(croupierService.createTransaction(playerMoneyTransactionDTO));
     }
 
 }

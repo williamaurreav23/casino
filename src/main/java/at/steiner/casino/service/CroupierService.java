@@ -1,6 +1,8 @@
 package at.steiner.casino.service;
 
+import at.steiner.casino.domain.enumeration.Transaction;
 import at.steiner.casino.service.dto.PlayerDTO;
+import at.steiner.casino.service.dto.PlayerMoneyTransactionDTO;
 import at.steiner.casino.service.dto.TransactionDTO;
 
 import java.util.List;
@@ -26,5 +28,9 @@ public interface CroupierService {
      * @return whether the value could be set.
      */
     Boolean setTransactionType(Integer value);
+
+    Transaction getTransactionType();
+
+    PlayerMoneyTransactionDTO createTransaction(PlayerMoneyTransactionDTO playerMoneyTransactionDTO);
 
 }

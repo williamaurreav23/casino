@@ -11,12 +11,7 @@ public class PlayerMoneyTransactionDTO implements Serializable {
 
     private Long id;
 
-    private Instant time;
-
-    private Transaction transaction;
-
     private Integer value;
-
 
     private Long playerId;
 
@@ -26,22 +21,6 @@ public class PlayerMoneyTransactionDTO implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public Instant getTime() {
-        return time;
-    }
-
-    public void setTime(Instant time) {
-        this.time = time;
-    }
-
-    public Transaction getTransaction() {
-        return transaction;
-    }
-
-    public void setTransaction(Transaction transaction) {
-        this.transaction = transaction;
     }
 
     public Integer getValue() {
@@ -85,8 +64,6 @@ public class PlayerMoneyTransactionDTO implements Serializable {
     public String toString() {
         return "PlayerMoneyTransactionDTO{" +
             "id=" + getId() +
-            ", time='" + getTime() + "'" +
-            ", transaction='" + getTransaction() + "'" +
             ", value=" + getValue() +
             ", playerId=" + getPlayerId() +
             "}";
